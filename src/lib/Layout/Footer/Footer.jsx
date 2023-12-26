@@ -1,0 +1,115 @@
+import Image from "next/image";
+import Link from "next/link";
+// import { toast } from 'react-toastify';
+import {MdLocationPin,MdOutlineEmail,MdPhone} from 'react-icons/md';
+
+export const about = [
+    {icon:MdLocationPin, description:"Morabadi ranchi near Sindhu Kanhoo Park, Jharkhand"},
+    {icon:MdPhone, description:"+917462833534"},
+    {icon:MdOutlineEmail, description:"ayush0999aryan@gmail.com"}
+
+]
+
+const AboutItems = [
+  { name: "Terms & Conditions", url: "/" },
+  { name: "Privacy Policy", url: "/" },
+  { name: "Custome Service", url: "/" },
+  { name: "FAQs", url: "/" },
+];
+const Social = [
+  { name: "Linkedin", url: "https://www.linkedin.com/in/ayusharyan07/" },
+  { name: "Instagram", url: "https://www.instagram.com/ayusharyan07/" },
+  { name: "Twitter", url: "https://twitter.com/ayusharyan09" },
+];
+const QuickLinks = [
+  { name: "Brochure", url: "/" },
+  { name: "Portfolio", url: "/" },
+  { name: "Events", url: "/" },
+  { name: "Latest News", url: "/" },
+];
+const Footer = () => {
+  return (
+    <footer className="sticky top-full not-prose z-10  p-2 shadow-md flex bg-slate-800/60 items-center justify-between w-full flex-col">
+
+      <div className="grid grid-cols-12 gap-2 h-auto text-white w-full p-8">
+      <div className="col-span-12 sm:col-span-6 md:col-span-3 ">
+          <h4 className="font-bold text-lg font-serif">Information</h4> 
+          <ul className="p-2 pl-8 sm:pl-0">
+            {about.map((value, index) => {
+              return (
+                <li key={"AboutUsFooter" + index} className="my-2 flex flex-wrap gap-4">
+                  <value.icon className="h-6 w-6" />
+                  <p>
+                    {value.description}
+                  </p>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+        <div className="col-span-12 sm:col-span-6 md:col-span-3 ">
+          <h4 className="font-bold text-lg font-serif">Information</h4>
+          <ul className="p-2 pl-8 sm:pl-0">
+            {AboutItems.map((value, index) => {
+              return (
+                <li key={"AboutUsFooter" + index}>
+                  <Link
+                    href={value.url}
+                    className="inline-block dark:hover:text-sky-500 hover:font-medium py-1"
+                  >
+                    {value.name}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+        <div className="col-span-12 sm:col-span-6 md:col-span-3 ">
+          <h4 className="font-bold text-lg font-serif">Social</h4>
+          <ul className="p-2 pl-8 sm:pl-0">
+            {Social.map((value, index) => {
+              return (
+                <li key={"LatestPostsFooter" + index}>
+                  <Link
+                    href={value.url}
+                    className="inline-block dark:hover:text-sky-500 hover:font-medium py-1"
+                  >
+                    {value.name}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+        <div className="col-span-12 sm:col-span-6 md:col-span-3 ">
+          <h4 className="font-bold text-lg font-serif">Our Apps</h4>
+          <ul className="p-2 pl-8 sm:pl-0">
+            {QuickLinks.map((value, index) => {
+              return (
+                <li key={"AboutUsFooter" + index}>
+
+                  <Link
+                    href={value.url}
+                    className="inline-block dark:hover:text-sky-500 hover:font-medium py-1"
+                  >
+                    {value.name}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+
+      </div>
+
+      <div className="border-t-2 h-20  justify-center border-white p-2 px-4 w-11/12 text-white flex items-center flex-col  ">
+
+        <span className="block">&copy; Copyright 2023, by <Link href="https://www.saralcode.com" >www.saralcode.com</Link> </span>
+        <span className="block">&nbsp; All Rights Reserved.</span>
+
+        {/* </div> */}
+      </div>
+    </footer>
+  );
+};
+export default Footer;
